@@ -98,6 +98,17 @@ class App extends React.Component {
     }
 }
 
+UserRow.propTypes = {
+    user: PropTypes.array.isRequired
+};
+UserTable.propTypes = {
+    users: PropTypes.array.isRequired,
+    filterText: PropTypes.string.isRequired
+};
+SearchBar.propTypes = {
+    onFilterTextChange: PropTypes.object
+};
+
 const url = 'https://jsonplaceholder.typicode.com/users';
 const getsUser = [];
 
