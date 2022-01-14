@@ -16,19 +16,22 @@ class UserTable extends React.Component {
     render() {
         const filterText = this.props.filterText;
 
-        const rows = [];
+        const rows = this.props.users
+            .filter(user => user.name.includes(filterText))
+            .map(user => <UserRow user={user} key={user.id} />);
+        // const rows = [];
 
-        this.props.users.forEach((user) => {
-            if (user.name.indexOf(filterText) === -1) {
-                return;
-            }
-            rows.push(
-                <UserRow
-                    user={user}
-                    key={user.id}
-                />
-            );
-        });
+        // this.props.users.forEach((user) => {
+        //     if (user.name.indexOf(filterText) === -1) {
+        //         return;
+        //     }
+        //     rows.push(
+        //         <UserRow
+        //             user={user}
+        //             key={user.id}
+        //         />
+        //     );
+        // });
         return (
             <table>
                 <thead>
